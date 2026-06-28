@@ -15,4 +15,4 @@ npm run dev
 that's it.
 
 
-[vivabaranwal.com]((https://vivabaranwal.vercel.app/)) · [linkedin](https://linkedin.com/in/viva-baranwal-224151279)
+((https://vivabaranwal.vercel.app/)) · [linkedin](https://linkedin.com/in/viva-baranwal-224151279)
