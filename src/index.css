@@ -1,13 +1,130 @@
-﻿:root {
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+:root {
   --bg: #000000;
+  --card-bg: #0d0d0d;
+  --border-subtle: #1a1a1a;
+  --golden: #f5a623;
+  --green-accent: #58cc02;
   --text-heading: #ffffff;
-  --text-body: #a0a0a0;
+  --text-body: #cccccc;
+  --text-muted: #888888;
+}
+
+[data-theme='light'] {
+  --bg: #f5f5f0;
+  --card-bg: #ebebeb;
+  --border-subtle: #d4d4d4;
+  --golden: #d4890a;
+  --green-accent: #3ea801;
+  --text-heading: #111111;
+  --text-body: #333333;
   --text-muted: #666666;
 }
-body {
+
+/* ─── Tailwind Custom Theme ──────────────────────────────── */
+@theme {
+  --color-golden: #f5a623;
+  --color-golden-dark: #d4890a;
+  --color-green-accent: #58cc02;
+  --color-card: #0d0d0d;
+  --color-subtle: #1a1a1a;
+  --font-family-anton: 'Anton', sans-serif;
+  --font-family-dancing: 'Dancing Script', cursive;
+  --font-family-inter: 'Inter', sans-serif;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg);
   color: var(--text-body);
-  font-family: sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #f5a623;
+  border-radius: 3px;
+}
+
+/* ─── Selection ──────────────────────────────────────────── */
+::selection {
+  background: #f5a62344;
+  color: #fff;
+}
+
+/* ─── Font Helpers ───────────────────────────────────────── */
+.font-anton { font-family: 'Anton', sans-serif; }
+.font-dancing { font-family: 'Dancing Script', cursive; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* ─── Decorative Shapes ──────────────────────────────────── */
+.deco-circle {
+  border-radius: 50%;
+  border: 2px solid #f5a623;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.deco-crescent {
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 20px -20px 0 #f5a623;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* ─── Toast ──────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f5a623;
+  color: #000;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* ─── Section Spacing ────────────────────────────────────── */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  section {
+    overflow-x: hidden;
+  }
 }
